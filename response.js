@@ -94,14 +94,17 @@ kosu = function(r){
 
 	// 특정 상황에 맞는 갯수
 	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) 
+	id_today2 = D.selectForArray('kos',['id'],'cert2=?',[D.selectForArray('kos')[date][12]]) 
 	// 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
+	var pro_array2 = [];
 
 	for(k=1; k<id_today.length; k++){
 		for(j=1; j<(days+1); j++){
 			for(z=1; z<j+1; z++){
 					pro_array.push(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0][z]);
+					pro_array2.push(D.selectForArray('kos',[],'id=?',[id_today2[k]-j])[0][z]);
 			
 			}
 		}
@@ -128,8 +131,30 @@ kosu = function(r){
 					"-1% 이하: " + prob_a + "\n" +
 					"-2% 이하: " + prob_b );
 	
-	r.replier.reply(id_today + "\n" + dddd)
+	r.replier.reply("cert1" + id_today + "\n" + dddd)
 	
+	dddd2 = flattenDeep(pro_array2)
+
+	prob_22 = (dddd2.filter(v=>v>0.02).length / dddd2.length * 100).toFixed(0)+"%"	;
+	prob_12 = (dddd2.filter(v=>v>0.01).length / dddd2.length * 100).toFixed(0)+"%"	;
+	prob_02 = (dddd2.filter(v=>v>0.00).length / dddd2.length * 100).toFixed(0)+"%"	;
+	
+	prob_002 = (dddd2.filter(v=>v<0.00).length / dddd2.length * 100).toFixed(0)+"%"	;
+	prob_a2 = (dddd2.filter(v=>v<-0.01).length / dddd2.length * 100).toFixed(0)+"%"	;
+	prob_b2 = (dddd2.filter(v=>v<-0.02).length / dddd2.length * 100).toFixed(0)+"%"	;
+
+
+	var time = (new Date() - Timer) / 1000;
+	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 변동확률 \n" + 
+					"2% 이상: " + prob_22 + "\n" +
+					"1% 이상: " + prob_12 + "\n" +
+					"0% 이상: " + prob_02 + "\n\n" +
+					"0% 이하: " + prob_002 + "\n" +
+					"-1% 이하: " + prob_a2 + "\n" +
+					"-2% 이하: " + prob_b2 );
+	
+	r.replier.reply("cert2" + id_today2 + "\n" + dddd2)
+
 }
 
 
