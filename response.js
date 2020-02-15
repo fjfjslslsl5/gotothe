@@ -98,9 +98,9 @@ kosu = function(r){
 	// 특정 상황에 맞는 갯수
 	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) // 오늘 특정 변수와 같은 값을 가진 id
 
-	var pro_array = [];
+	pro_array = [];
 
-	for(j=1; j<days+1; j++){
+	for(j=1; j<(days+1); j++){
 		for(k=0; k<id_today.length; k++){
 			if(j=1){
 				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
@@ -151,10 +151,12 @@ kosu = function(r){
 	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 변동확률 \n" + 
 					"2% 이상: " + prob_2 + "\n" +
 					"1% 이상: " + prob_1 + "\n" +
-					"0% 이상: " + prob_0 + "\n" +
+					"0% 이상: " + prob_0 + "\n\n" +
 					"0% 이하: " + prob_00 + "\n" +
 					"-1% 이하: " + prob_a + "\n" +
 					"-2% 이하: " + prob_b );
+	
+	r.replier.reply(id_tday + "\n" + dddd)
 	
 }
 
