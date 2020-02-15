@@ -156,7 +156,7 @@ kosu = function(r){
 					"-1% 이하: " + prob_a + "\n" +
 					"-2% 이하: " + prob_b );
 	
-	r.replier.reply(id_tday + "\n" + dddd)
+	r.replier.reply(id_today + "\n" + dddd)
 	
 }
 
