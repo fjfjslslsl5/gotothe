@@ -68,7 +68,7 @@ D.insert('test',{id:i})
 
 // 계산 식
 
-	band = function(days, point, r){  
+	band = function(days, r){  
 	var Timer = new Date();
 
 	// 특정 상황에 맞는 갯수
@@ -81,7 +81,23 @@ D.insert('test',{id:i})
 			pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]-j]))
 		}
 	}
-	prob = pro_array.filter(v=>v>point).length / pro_array.length * 100	;
+
+	function flattenDeep(arr1) {
+		return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
+	}
+
+	dddd = flattenDeep(pro_array)
+
+	prob_3 = dddd.filter(v=>v>0.03).length / dddd.length * 100	;
+	prob_2 = dddd.filter(v=>v>0.02).length / dddd.length * 100	;
+	prob_1 = dddd.filter(v=>v>0.01).length / dddd.length * 100	;
+	prob_0 = dddd.filter(v=>v>0.00).length / dddd.length * 100	;
+	
+	prob_00 = dddd.filter(v=>v<0.00).length / dddd.length * 100	;
+	prob_2 = dddd.filter(v=>v<-0.01).length / dddd.length * 100	;
+	prob_2 = dddd.filter(v=>v<-0.02).length / dddd.length * 100	;
+	prob_2 = dddd.filter(v=>v<-0.03).length / dddd.length * 100	;
+
 
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + point + "변동확률" + prob + "%");
