@@ -78,7 +78,8 @@ kosu = function(r){
 
 	abb = D.selectForArray('kos');
 	for(j=0; j<abb.length; j++){
-	D.update('kos',{cert1:(abb[j][10]*10/55+abb[j][9]*9/55+abb[j][8]*8/55+abb[j][7]*7/55+abb[j][6]*6/55+abb[j][5]*5/55+abb[j][4]*4/55+abb[j][3]*3/55+abb[j][2]*2/55+abb[j][1]*1/55).toFixed(4) },"id=?",[i])
+	D.update('kos',{cert1:(abb[j][10]*10/55+abb[j][9]*9/55+abb[j][8]*8/55+abb[j][7]*7/55+abb[j][6]*6/55+abb[j][5]*5/55+abb[j][4]*4/55+abb[j][3]*3/55+abb[j][2]*2/55+abb[j][1]*1/55).toFixed(4) },"id=?",[i]);
+	D.update('kos',{cert2:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(4) },"id=?",[i]);
 	}
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("업로드완료: "+ time + "s\n");
