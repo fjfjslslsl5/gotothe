@@ -68,7 +68,7 @@ kosu = function(r){
 
 	var Timer = new Date();
 
-	abb = D.selectForArray('kos');
+	
 
 	for(i=0; i<k200.length; i++){
 		D.update('kos',{num1:((k200[i]-k200[i+ 1])/k200[i+ 1])},"id=?",[i]) //1일
@@ -81,9 +81,11 @@ kosu = function(r){
 		D.update('kos',{num8:((k200[i]-k200[i+ 8])/k200[i+ 8])},"id=?",[i])
 		D.update('kos',{num9:((k200[i]-k200[i+ 9])/k200[i+ 9])},"id=?",[i])
 		D.update('kos',{num10:((k200[i]-k200[i+ 10])/k200[i+ 10])},"id=?",[i])
+	}
 
-
-		D.update('kos',{cert1:(abb[i][3]*3/6+abb[i][2]*2/6+abb[i][1]*1/6).toFixed(4) },"id=?",[i])
+	abb = D.selectForArray('kos');
+	for(i=0; i<k200.length; i++){
+	D.update('kos',{cert1:(abb[i][3]*3/6+abb[i][2]*2/6+abb[i][1]*1/6).toFixed(4) },"id=?",[i])
 	}
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("업로드완료: "+ time + "s\n");
