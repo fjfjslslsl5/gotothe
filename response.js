@@ -65,28 +65,27 @@ D.insert('test',{id:i})
 		D.update('test',{num6:(abb[i][3]*3/6+abb[i][2]*2/6+abb[i][1]*1/6).toFixed(3) },"id=?",[i])
 	}
 
-	// 특정 상황에 맞는 갯수
-	id_today = D.selectForArray('test',['id'],'num6=?',[abb[0][6]]) // 오늘 특정 변수와 같은 값을 가진 id
 
 // 계산 식
 
 	band = function(days, point, r){  
 	var Timer = new Date();
 
-	
+	// 특정 상황에 맞는 갯수
+	id_today = D.selectForArray('test',['id'],'num6=?',[abb[0][6]]) // 오늘 특정 변수와 같은 값을 가진 id
+
 	var pro_array = [];
 
 	for(j=1; j<days+1; j++){
 		for(k=0; k<id_today.length; k++){
-		pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]+j])
+			pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]-j]))
 		}
-
 	}
-
 	prob = pro_array.filter(v=>v>point).length / pro_array.length * 100	;
 
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + point + "변동확률" + prob + "%");
+	
 }
 
 
@@ -127,5 +126,3 @@ function response(room, msg, sender, isGroupChat, replier, imageDB) {
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-
-
