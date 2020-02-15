@@ -96,20 +96,41 @@ kosu = function(r){
 	var Timer = new Date();
 
 	// 특정 상황에 맞는 갯수
-	id_today = D.selectForArray('test',['id'],'num6=?',[abb[date][6]]) // 오늘 특정 변수와 같은 값을 가진 id
+	id_today = D.selectForArray('kos',['id'],'cert1=?',[abb[date][11]]) // 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
 
 	for(j=1; j<days+1; j++){
 		for(k=0; k<id_today.length; k++){
 			if(j=1){
-				pro_array.push(D.selectForArray('test',['num1'],'id=?',[id_today[k]-j]))
+				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
 			}
 			if(j=2){
-				pro_array.push(D.selectForArray('test',['num1','num2'],'id=?',[id_today[k]-j]))
+				pro_array.push(D.selectForArray('kos',['num1','num2'],'id=?',[id_today[k]-j]))
 			}
 			if(j=3){
-				pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]-j]))
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3'],'id=?',[id_today[k]-j]))
+			}
+			if(j=4){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4'],'id=?',[id_today[k]-j]))
+			}
+			if(j=5){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5'],'id=?',[id_today[k]-j]))
+			}
+			if(j=6){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6'],'id=?',[id_today[k]-j]))
+			}
+			if(j=7){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7'],'id=?',[id_today[k]-j]))
+			}
+			if(j=8){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8'],'id=?',[id_today[k]-j]))
+			}
+			if(j=9){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9'],'id=?',[id_today[k]-j]))
+			}
+			if(j=10){
+				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'],'id=?',[id_today[k]-j]))
 			}
 		}
 	}
