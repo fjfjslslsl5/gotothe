@@ -80,16 +80,7 @@ kosu = function(nn,r){
 		D.update('kos',{num8:((k200[i]-k200[i+ 8])/k200[i+ 8])},"id=?",[i])
 		D.update('kos',{num9:((k200[i]-k200[i+ 9])/k200[i+ 9])},"id=?",[i])
 		D.update('kos',{num10:((k200[i]-k200[i+ 10])/k200[i+ 10])},"id=?",[i])
-		D.update('kos',{num11:((k200[i]-k200[i+ 11])/k200[i+ 11])},"id=?",[i])
-		D.update('kos',{num12:((k200[i]-k200[i+ 12])/k200[i+ 12])},"id=?",[i])
-		D.update('kos',{num13:((k200[i]-k200[i+ 13])/k200[i+ 13])},"id=?",[i])
-		D.update('kos',{num14:((k200[i]-k200[i+ 14])/k200[i+ 14])},"id=?",[i])
-		D.update('kos',{num15:((k200[i]-k200[i+ 15])/k200[i+ 15])},"id=?",[i])
-		D.update('kos',{num16:((k200[i]-k200[i+ 16])/k200[i+ 16])},"id=?",[i])
-		D.update('kos',{num17:((k200[i]-k200[i+ 17])/k200[i+ 17])},"id=?",[i])
-		D.update('kos',{num18:((k200[i]-k200[i+ 18])/k200[i+ 18])},"id=?",[i])
-		D.update('kos',{num19:((k200[i]-k200[i+ 19])/k200[i+ 19])},"id=?",[i])
-		D.update('kos',{num20:((k200[i]-k200[i+ 20])/k200[i+ 20])},"id=?",[i])
+
 
 		D.update('kos',{cert1:(abb[i][nn]*nn/add+abb[i][nn-1]*(nn-1)/add).toFixed(3) },"id=?",[i])
 	}
