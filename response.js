@@ -158,8 +158,8 @@ function response(room, msg, sender, isGroupChat, replier, imageDB) {
 	
 	try {
 	
-		if (msg == "ㅎㅎ" || msg == "호호g") {
-			replier.reply("Turning Point");
+		if (msg == "ㅎㅎ" || msg == "gg") {
+			replier.reply("Turning Point_ㅎㅎ");
 			return;
 
 		}
