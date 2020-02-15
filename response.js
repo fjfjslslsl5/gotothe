@@ -56,23 +56,37 @@ D.insert('test',{id:i})
 }
 */
 
-일차별 수익률
-change = function(days){
-		for(i=0; i<k200.length; i++){
-			D.update('test',{num1:((k200[i]-k200[i+1])/k200[i+1])},"id=?",[i]) //1일
-			D.update('test',{num2:((k200[i]-k200[i+2])/k200[i+2])},"id=?",[i]) //2일누적...num2,num...
-			
-		}
-}
+// 일차별 수익률 + 상황 특정 변수
+	abb = D.selectForArray('test');
+	for(i=0; i<k200.length; i++){
+		D.update('test',{num1:((k200[i]-k200[i+ 1])/k200[i+ 1])},"id=?",[i]) //1일
+		D.update('test',{num2:((k200[i]-k200[i+ 2])/k200[i+ 2])},"id=?",[i]) //2일누적...num2,num...
+		D.update('test',{num3:((k200[i]-k200[i+ 3])/k200[i+ 3])},"id=?",[i])
+		D.update('test',{num6:(abb[i][3]*3/6+abb[i][2]*2/6+abb[i][1]*1/6).toFixed(3) },"id=?",[i])
+	}
 
+	// 특정 상황에 맞는 갯수
+	id_today = D.selectForArray('test',['id'],'num6=?',[abb[0][6]]) // 오늘 특정 변수와 같은 값을 가진 id
 
-band = function(aaa, bbb, ccc, ddd, eee, r){  
+// 계산 식
+
+	band = function(days, point, r){  
 	var Timer = new Date();
-//aaa=
 
+	
+	var pro_array = [];
+
+	for(j=1; j<days+1; j++){
+		for(k=0; k<id_today.length; k++){
+		pro_array.push( D.selectForArray('test, ['num1','num2', 'num3'], 'id=?', [(id_today[k]+j)]) ) // 특정 값 며칠뒤
+		}
+
+	}
+
+	prob = pro_array.filter(v=>v>point).length / pro_array.length * 100	;
 
 	var time = (new Date() - Timer) / 1000;
-	r.replier.reply("자리수 계산완료: "+ time + "s\n");
+	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + point + "변동확률" + prob + "%");
 }
 
 
