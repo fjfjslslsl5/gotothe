@@ -97,13 +97,9 @@ kosu = function(r){
 
 	var pro_array = [];
 
-	for(k=0; k<id_today.length; k++){
+	for(k=1; k<id_today.length; k++){
 		for(j=1; j<(days+1); j++){
 			for(z=1; z<j+1; z++){
-				if(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0] == undefined){
-					pro_array.push('');
-				}
-				else{
 					pro_array.push(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0][z]);
 				}
 			}
