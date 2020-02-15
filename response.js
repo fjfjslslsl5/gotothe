@@ -96,7 +96,7 @@ kosu = function(r){
 	var Timer = new Date();
 
 	// 특정 상황에 맞는 갯수
-	id_today = D.selectForArray('kos',['id'],'cert1=?',[abb[date][11]]) // 오늘 특정 변수와 같은 값을 가진 id
+	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) // 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
 
