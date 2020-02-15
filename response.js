@@ -46,46 +46,14 @@ function reload(r) {
 }
 File = java.io.File;
 
-///////////////////////////////////////////////////////////////////////////
-//전역 함수
-// 배열 합계 구하기 함수
-function sum(array) {
-	var result = 0.0;
-  
-	for (var i = 0; i < array.length; i++)
-	  result += array[i];
-  
-	return result;
-  }
-  
-  // 배열 평균 구하기 함수
-  function average(array) {
-	var sum = 0.0;
-  
-	for (var i = 0; i < array.length; i++)
-	  sum += array[i];
-  
-	return sum / array.length;
-  }
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-/*
-div = function(rr,aa,n,r){
-	res=""
+
+
+band = function(aaa, bbb, ccc, ddd, eee r){  
 	var Timer = new Date();
-	D.delete('test')
-	for(i=0; i<n; i++){
-		a=10*rr
-		q=Math.floor(a/aa)
-		rr=a-q*aa
-		res+=q
-		D.insert('test',{id:(i+1),num:q})
-	}
-
-*/
-
-pip = function(piurl,nn,r){  //nn=숫자 수
-	var Timer = new Date();
+//aaa=
 	ddd= org.jsoup.Jsoup.connect(piurl).get().select('body').text().split('')
 	eee = ddd.splice(3,nn);
 	D.delete('test3');
@@ -96,60 +64,23 @@ pip = function(piurl,nn,r){  //nn=숫자 수
 	for(j=0; j<eee.length; j+=2){
 		D.insert('test4',{num:(eee[j]+eee[j+1])})
 	}
+
+
+
+
+
+
+
 	var time = (new Date() - Timer) / 1000;
-	r.replier.reply(eee.length+'자리수 계산완료'+' ' + time + "s\n");
+	r.replier.reply('자리수 계산완료: '+ time + "s\n");
 }
 
-pic = function(r){
-	
-	leng = D.selectForArray('test3').length
-
-	count_0 = D.selectForArray('test3',null,'num=?',[0]).length;
-	count_1 = D.selectForArray('test3',null,'num=?',[1]).length;
-	count_2 = D.selectForArray('test3',null,'num=?',[2]).length;
-	count_3 = D.selectForArray('test3',null,'num=?',[3]).length;
-	count_4 = D.selectForArray('test3',null,'num=?',[4]).length;
-	count_5 = D.selectForArray('test3',null,'num=?',[5]).length;
-	count_6 = D.selectForArray('test3',null,'num=?',[6]).length;
-	count_7 = D.selectForArray('test3',null,'num=?',[7]).length;
-	count_8 = D.selectForArray('test3',null,'num=?',[8]).length;
-	count_9 = D.selectForArray('test3',null,'num=?',[9]).length;
-
-	r.replier.reply('총'+leng+'개 중에'+'\n'+
-					'0 : '+ count_0 + '(' +(count_0/leng*100).toFixed(1)+'%)\n'+
-					'1 : '+ count_1 + '(' +(count_1/leng*100).toFixed(1)+'%)\n'+
-					'2 : '+ count_2 + '(' +(count_2/leng*100).toFixed(1)+'%)\n'+
-					'3 : '+ count_3 + '(' +(count_3/leng*100).toFixed(1)+'%)\n'+
-					'4 : '+ count_4 + '(' +(count_4/leng*100).toFixed(1)+'%)\n'+
-					'5 : '+ count_5 + '(' +(count_5/leng*100).toFixed(1)+'%)\n'+
-					'6 : '+ count_6 + '(' +(count_6/leng*100).toFixed(1)+'%)\n'+
-					'7 : '+ count_7 + '(' +(count_7/leng*100).toFixed(1)+'%)\n'+
-					'8 : '+ count_8 + '(' +(count_8/leng*100).toFixed(1)+'%)\n'+
-					'9 : '+ count_9 + '(' +(count_9/leng*100).toFixed(1)+'%)\n')
 
 
-	leng_2 = D.selectForArray('test4').length
 
-	count_set = [];
-	for (i=0; i<100; i++){
-		count_set.push(D.selectForArray('test4',null,'num=?',[i]).length);
-	}
 
-	max_n = Math.max.apply(null,count_set)
-	max_num = count_set.indexOf(max_n);
-	min_n = Math.min.apply(null,count_set)
-	min_num = count_set.indexOf(min_n);
 
-	res="";
-	for(j=0; j<100; j++){
-		count_p = (count_set[j]/leng_2*100).toFixed(1) + '%\n'
-		res+= j + ' : ' +count_p;
-	}
-
-	r.replier.reply(res + '\n' + 'Max :' + max_num + '(' + max_n + ')' + '\n' + 'Min :' + min_num + '(' + min_n + ')')
-
-}
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function response(room, msg, sender, isGroupChat, replier, imageDB) {
@@ -161,15 +92,12 @@ function response(room, msg, sender, isGroupChat, replier, imageDB) {
 		if (msg == "ㅎㅎ" || msg == "gg") {
 			replier.reply("Turning Point_ㅎㅎ");
 			return;
-
 		}
-		
 
 		if (msg.indexOf("/로딩") != -1){
 			reload(r);
 			return;
 		}
-
 
         if (msg.indexOf("]") == 0 && sender == admin) {
             replier.reply(String(eval(msg.substring(1))));
@@ -177,22 +105,14 @@ function response(room, msg, sender, isGroupChat, replier, imageDB) {
         }
 
 
-	if(msg.indexOf("ss") != -1) {
-		denominator = Number(msg.substr(3).split('/')[1]) // 분모
-		numerator = Number(msg.substr(3).split('/')[0]) // 분자
-		res=""
-		for(i=0;i<1000;i++){
-			aaa = 10*numerator
-			qqq = Math.floor(aaa/denominator)
-			numerator = aaa-qqq*denominator
-			res += qqq
-		}
-		replier.reply(res)
-		}
-
-
-	
     }catch (e) {
     replier.reply( e + "\n" + e.stack);
     }
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+KO200 = [303.3,302.78,299.74,301.53,300.13,297.06,294.41,289.42,291.23,288.43,290.74,290.35,293.77,295.2,294.06,292.9,294.87,295.31,294.31,294.22,294.4,289.76,290.11,285.11,280.28,279.31,278.03,276.56,273.3,274.15,276.19,277.44,276.78,281.23,282.85,281.83,282.19,279.43,278.28,282.21,286.23,287.18,287.29,283.93,281.28,283.65,280.85,283.13,284.37,284.52,284.38,282.54,278.43,275.82,275.51,277.55,277.78,277.07,276.7,276.23,277.41,273.79,272.81,275.57,276.32,274.34,274.23,271.3,268.8,271.36,267.67,267.39,268.55,274.42,273.55,271.33,274.89,274.42,277.97,276.65,276.44,274.92,273.06,271.68,272.02,270.84,268.76,267.4,265.53,264.44,261.69,258.25,259.08,259,254.31,255.53,253.5,252.19,256.11,256.28,258.38,258.05,255.11,253.9,254.86,252.83,255.35,254.85,252.4,252,253.41,257.19,262.99,265.73,266.34,268.95,267.75,272.25,273.04,273.22,275.92,274.55,274.55,270.67,271.48,274.05,272.64,272.68,271.78,268.75,267.72,268.55,274.35,274.54,272.37,275.97,277.27,277.5,277.75,275.53,275.28,275.58,275.48,276.01,275.31,271.36,270.09,270.48,271.13,272.74,273.21,272.1,268.27,267.99,267.66,268.16,263.89,263.93,261.37,264.7,264.4,264.42,266.38,266.65,266.12,264.96]
