@@ -101,7 +101,7 @@ kosu = function(r){
 		for(j=1; j<(days+1); j++){
 			for(z=1; z<j+1; z++){
 					pro_array.push(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0][z]);
-				}
+			
 			}
 		}
 	}
