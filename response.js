@@ -68,11 +68,11 @@ D.insert('test',{id:i})
 
 // 계산 식
 
-	band = function(days, r){  
+	band = function(days, date, r){  
 	var Timer = new Date();
 
 	// 특정 상황에 맞는 갯수
-	id_today = D.selectForArray('test',['id'],'num6=?',[abb[0][6]]) // 오늘 특정 변수와 같은 값을 가진 id
+	id_today = D.selectForArray('test',['id'],'num6=?',[abb[date][6]]) // 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
 
