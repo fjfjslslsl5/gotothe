@@ -99,11 +99,11 @@ D.insert('test',{id:i})
 
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 변동확률 \n" + 
-					"2% 이상: " + prob_2 + "\n"
-					"1% 이상: " + prob_1 + "\n"
-					"0% 이상: " + prob_0 + "\n"
-					"0% 이하: " + prob_00 + "\n"
-					"-1% 이하: " + prob_a + "\n"
+					"2% 이상: " + prob_2 + "\n" +
+					"1% 이상: " + prob_1 + "\n" +
+					"0% 이상: " + prob_0 + "\n" +
+					"0% 이하: " + prob_00 + "\n" +
+					"-1% 이하: " + prob_a + "\n" +
 					"-2% 이하: " + prob_b );
 	
 }
