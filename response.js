@@ -54,25 +54,10 @@ var k200 = [303.3,302.78,299.74,301.53,300.13,297.06,294.41,289.42,291.23,288.43
 band = function(aaa, bbb, ccc, ddd, eee r){  
 	var Timer = new Date();
 //aaa=
-	ddd= org.jsoup.Jsoup.connect(piurl).get().select('body').text().split('')
-	eee = ddd.splice(3,nn);
-	D.delete('test3');
-	D.delete('test4');
-	for(i=0; i<eee.length; i++){
-		D.insert('test3',{num:eee[i]})
-	}
-	for(j=0; j<eee.length; j+=2){
-		D.insert('test4',{num:(eee[j]+eee[j+1])})
-	}
-
-
-
-
-
 
 
 	var time = (new Date() - Timer) / 1000;
-	r.replier.reply('자리수 계산완료: '+ time + "s\n");
+	r.replier.reply("자리수 계산완료: "+ time + "s\n");
 }
 
 
