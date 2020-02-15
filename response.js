@@ -102,6 +102,11 @@ kosu = function(r){
 
 	for(k=0; k<id_today.length; k++){
 		for(j=1; j<(days+1); j++){
+			for(z=1; z<j+1; z++){
+				
+				pro_array.push(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0][z]);
+
+			/*	
 			if(j=1){
 				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
 			}
@@ -131,6 +136,8 @@ kosu = function(r){
 			}
 			if(j=10){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'],'id=?',[id_today[k]-j]))
+			}
+			*/
 			}
 		}
 	}
