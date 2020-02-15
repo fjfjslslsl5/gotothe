@@ -78,7 +78,7 @@ D.insert('test',{id:i})
 
 	for(j=1; j<days+1; j++){
 		for(k=0; k<id_today.length; k++){
-		pro_array.push( D.selectForArray('test, ['num1','num2', 'num3'], 'id=?', [(id_today[k]+j)]) ) // 특정 값 며칠뒤
+		pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]+j])
 		}
 
 	}
