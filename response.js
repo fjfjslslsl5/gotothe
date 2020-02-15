@@ -131,7 +131,7 @@ kosu = function(r){
 					"-1% 이하: " + prob_a + "\n" +
 					"-2% 이하: " + prob_b );
 	
-	r.replier.reply("cert1" + id_today + "\n" + dddd)
+	r.replier.reply("cert1: " + id_today + "\n" + dddd)
 	
 	dddd2 = flattenDeep(pro_array2)
 
@@ -153,7 +153,7 @@ kosu = function(r){
 					"-1% 이하: " + prob_a2 + "\n" +
 					"-2% 이하: " + prob_b2 );
 	
-	r.replier.reply("cert2" + id_today2 + "\n" + dddd2)
+	r.replier.reply("cert2: " + id_today2 + "\n" + dddd2)
 
 }
 
