@@ -88,19 +88,23 @@ D.insert('test',{id:i})
 	}
 	dddd = flattenDeep(pro_array)
 
-	prob_3 = dddd.filter(v=>v>0.03).length / dddd.length * 100	;
-	prob_2 = dddd.filter(v=>v>0.02).length / dddd.length * 100	;
-	prob_1 = dddd.filter(v=>v>0.01).length / dddd.length * 100	;
-	prob_0 = dddd.filter(v=>v>0.00).length / dddd.length * 100	;
+	prob_2 = (dddd.filter(v=>v>0.02).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_1 = (dddd.filter(v=>v>0.01).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_0 = (dddd.filter(v=>v>0.00).length / dddd.length * 100).toFixed(3)+"%"	;
 	
-	prob_00 = dddd.filter(v=>v<0.00).length / dddd.length * 100	;
-	prob_a = dddd.filter(v=>v<-0.01).length / dddd.length * 100	;
-	prob_b = dddd.filter(v=>v<-0.02).length / dddd.length * 100	;
-	prob_c = dddd.filter(v=>v<-0.03).length / dddd.length * 100	;
+	prob_00 = (dddd.filter(v=>v<0.00).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_a = (dddd.filter(v=>v<-0.01).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_b = (dddd.filter(v=>v<-0.02).length / dddd.length * 100).toFixed(3)+"%"	;
 
 
 	var time = (new Date() - Timer) / 1000;
-	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + "\n" + "변동확률" + prob_0 + " " + prob_00 + "%");
+	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 변동확률 \n" + 
+					"2% 이상: " + prob_2 + "\n"
+					"1% 이상: " + prob_1 + "\n"
+					"0% 이상: " + prob_0 + "\n"
+					"0% 이하: " + prob_00 + "\n"
+					"-1% 이하: " + prob_a + "\n"
+					"-2% 이하: " + prob_b );
 	
 }
 
