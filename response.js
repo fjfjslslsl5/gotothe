@@ -82,10 +82,10 @@ D.insert('test',{id:i})
 		}
 	}
 
+	// 2차 배열 1차원으로 전환
 	function flattenDeep(arr1) {
 		return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
 	}
-
 	dddd = flattenDeep(pro_array)
 
 	prob_3 = dddd.filter(v=>v>0.03).length / dddd.length * 100	;
@@ -94,13 +94,13 @@ D.insert('test',{id:i})
 	prob_0 = dddd.filter(v=>v>0.00).length / dddd.length * 100	;
 	
 	prob_00 = dddd.filter(v=>v<0.00).length / dddd.length * 100	;
-	prob_2 = dddd.filter(v=>v<-0.01).length / dddd.length * 100	;
-	prob_2 = dddd.filter(v=>v<-0.02).length / dddd.length * 100	;
-	prob_2 = dddd.filter(v=>v<-0.03).length / dddd.length * 100	;
+	prob_a = dddd.filter(v=>v<-0.01).length / dddd.length * 100	;
+	prob_b = dddd.filter(v=>v<-0.02).length / dddd.length * 100	;
+	prob_c = dddd.filter(v=>v<-0.03).length / dddd.length * 100	;
 
 
 	var time = (new Date() - Timer) / 1000;
-	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + point + "변동확률" + prob + "%");
+	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 " + "\n" + "변동확률" + prob_0 + " " + prob_00 + "%");
 	
 }
 
