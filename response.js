@@ -52,12 +52,7 @@ File = java.io.File;
 D.insert('kos',{id:i})
 }
 */
-//factorial
-function factorial(n) {
-	var result = 1;
-	for(var i=2; i<=n; i++) result *= i;
-	return result;
-}
+
 // 2차 배열 1차원으로 전환
 function flattenDeep(arr1) {
 	return arr1.reduce((acc, val) => Array.isArray(val) ? acc.concat(flattenDeep(val)) : acc.concat(val), []);
@@ -83,12 +78,13 @@ kosu = function(r){
 
 	abb = D.selectForArray('kos');
 	for(j=0; j<abb.length; j++){
-	D.update('kos',{cert1:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(4) },"id=?",[i])
+	D.update('kos',{cert1:(abb[j][10]*10/55+abb[j][9]*9/55+abb[j][8]*8/55+abb[j][7]*7/55+abb[j][6]*6/55+abb[j][5]*5/55+abb[j][4]*4/55+abb[j][3]*3/55+abb[j][2]*2/55+abb[j][1]*1/55).toFixed(4) },"id=?",[i])
 	}
 	var time = (new Date() - Timer) / 1000;
 	r.replier.reply("업로드완료: "+ time + "s\n");
 
 }
+//D.update('kos',{cert2:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(4) },"id=?",[i]) (3개 계산인데 잘 맞았음)
 
 // 계산 식
 
@@ -96,7 +92,8 @@ kosu = function(r){
 	var Timer = new Date();
 
 	// 특정 상황에 맞는 갯수
-	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) // 오늘 특정 변수와 같은 값을 가진 id
+	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) 
+	// 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
 
@@ -109,39 +106,6 @@ kosu = function(r){
 				else{
 					pro_array.push(D.selectForArray('kos',[],'id=?',[id_today[k]-j])[0][z]);
 				}
-
-			/*	
-			if(j=1){
-				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
-			}
-			if(j=2){
-				pro_array.push(D.selectForArray('kos',['num1','num2'],'id=?',[id_today[k]-j]))
-			}
-			if(j=3){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3'],'id=?',[id_today[k]-j]))
-			}
-			if(j=4){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4'],'id=?',[id_today[k]-j]))
-			}
-			if(j=5){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5'],'id=?',[id_today[k]-j]))
-			}
-			if(j=6){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6'],'id=?',[id_today[k]-j]))
-			}
-			if(j=7){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7'],'id=?',[id_today[k]-j]))
-			}
-			if(j=8){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8'],'id=?',[id_today[k]-j]))
-			}
-			if(j=9){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9'],'id=?',[id_today[k]-j]))
-			}
-			if(j=10){
-				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'],'id=?',[id_today[k]-j]))
-			}
-			*/
 			}
 		}
 	}
