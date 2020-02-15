@@ -78,7 +78,15 @@ D.insert('test',{id:i})
 
 	for(j=1; j<days+1; j++){
 		for(k=0; k<id_today.length; k++){
-			pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]-j]))
+			if(j=1){
+				pro_array.push(D.selectForArray('test',['num1'],'id=?',[id_today[k]-j]))
+			}
+			if(j=2){
+				pro_array.push(D.selectForArray('test',['num1','num2'],'id=?',[id_today[k]-j]))
+			}
+			if(j=3){
+				pro_array.push(D.selectForArray('test',['num1','num2','num3'],'id=?',[id_today[k]-j]))
+			}
 		}
 	}
 
@@ -88,13 +96,13 @@ D.insert('test',{id:i})
 	}
 	dddd = flattenDeep(pro_array)
 
-	prob_2 = (dddd.filter(v=>v>0.02).length / dddd.length * 100).toFixed(3)+"%"	;
-	prob_1 = (dddd.filter(v=>v>0.01).length / dddd.length * 100).toFixed(3)+"%"	;
-	prob_0 = (dddd.filter(v=>v>0.00).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_2 = (dddd.filter(v=>v>0.02).length / dddd.length * 100).toFixed(0)+"%"	;
+	prob_1 = (dddd.filter(v=>v>0.01).length / dddd.length * 100).toFixed(0)+"%"	;
+	prob_0 = (dddd.filter(v=>v>0.00).length / dddd.length * 100).toFixed(0)+"%"	;
 	
-	prob_00 = (dddd.filter(v=>v<0.00).length / dddd.length * 100).toFixed(3)+"%"	;
-	prob_a = (dddd.filter(v=>v<-0.01).length / dddd.length * 100).toFixed(3)+"%"	;
-	prob_b = (dddd.filter(v=>v<-0.02).length / dddd.length * 100).toFixed(3)+"%"	;
+	prob_00 = (dddd.filter(v=>v<0.00).length / dddd.length * 100).toFixed(0)+"%"	;
+	prob_a = (dddd.filter(v=>v<-0.01).length / dddd.length * 100).toFixed(0)+"%"	;
+	prob_b = (dddd.filter(v=>v<-0.02).length / dddd.length * 100).toFixed(0)+"%"	;
 
 
 	var time = (new Date() - Timer) / 1000;
