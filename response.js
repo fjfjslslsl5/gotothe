@@ -105,31 +105,31 @@ kosu = function(r){
 			if(j=1){
 				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=2){
+			if(j=2){
 				pro_array.push(D.selectForArray('kos',['num1','num2'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=3){
+			if(j=3){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=4){
+			if(j=4){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=5){
+			if(j=5){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=6){
+			if(j=6){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=7){
+			if(j=7){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=8){
+			if(j=8){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=9){
+			if(j=9){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9'],'id=?',[id_today[k]-j]))
 			}
-			else if(j=10){
+			if(j=10){
 				pro_array.push(D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'],'id=?',[id_today[k]-j]))
 			}
 		}
