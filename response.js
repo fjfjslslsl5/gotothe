@@ -100,8 +100,8 @@ kosu = function(r){
 
 	pro_array = [];
 
-	for(j=1; j<(days+1); j++){
-		for(k=0; k<id_today.length; k++){
+	for(k=0; k<id_today.length; k++){
+		for(j=1; j<(days+1); j++){
 			if(j=1){
 				pro_array.push(D.selectForArray('kos',['num1'],'id=?',[id_today[k]-j]))
 			}
