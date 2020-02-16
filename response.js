@@ -99,8 +99,8 @@ kosu = function(r){
 	id_today3 = [];
 		for(i=0; i<id_today.length; i++){
 			for(j=0; j<id_today2.length; j++){
-	 		  if(Number(id_today[i]) == Number(id_today2[j])){
-	 	 		 id_today3.push(id_today[j])
+	 		  if(Number(id_today[i]) === Number(id_today2[j])){
+	 	 		 id_today3.push(id_today2[j])
 			   }
 		   }
 	   }
