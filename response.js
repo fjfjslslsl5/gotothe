@@ -96,7 +96,7 @@ kosu = function(r){
 	// 특정 상황에 맞는 갯수
 	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) 
 	id_today2 = D.selectForArray('kos',['id'],'cert2=?',[D.selectForArray('kos')[date][12]])
-	id_today3 = id_today.map(v=>v=id_today[v])
+	id_today3 = id_today.map(v=>v=id_today[v]).filter(n=>n)
 	// 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
