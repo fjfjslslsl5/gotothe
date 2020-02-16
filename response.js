@@ -78,7 +78,7 @@ kosu = function(r){
 
 	abb = D.selectForArray('kos');
 	for(j=0; j<abb.length; j++){
-	D.update('kos',{cert1:(abb[j][10]*10/55+abb[j][9]*9/55+abb[j][8]*8/55+abb[j][7]*7/55+abb[j][6]*6/55+abb[j][5]*5/55+abb[j][4]*4/55+abb[j][3]*3/55+abb[j][2]*2/55+abb[j][1]*1/55).toFixed(3) },"id=?",[j]);
+	D.update('kos',{cert1: D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'])[0].filter(v=>v>0).length },"id=?",[j]);
 	D.update('kos',{cert2:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(3) },"id=?",[j]);
 	}
 	var time = (new Date() - Timer) / 1000;
@@ -86,6 +86,7 @@ kosu = function(r){
 
 }
 //D.update('kos',{cert2:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(4) },"id=?",[i]) (3개 계산인데 잘 맞았음)
+//	D.update('kos',{cert1:(abb[j][10]*10/55+abb[j][9]*9/55+abb[j][8]*8/55+abb[j][7]*7/55+abb[j][6]*6/55+abb[j][5]*5/55+abb[j][4]*4/55+abb[j][3]*3/55+abb[j][2]*2/55+abb[j][1]*1/55).toFixed(3) },"id=?",[j]);
 //]D.selectForString('kos',['cert1','cert2'])
 // 계산 식
 
