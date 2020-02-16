@@ -95,11 +95,13 @@ kosu = function(r){
 
 	// 특정 상황에 맞는 갯수
 	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) 
-	id_today2 = D.selectForArray('kos',['id'],'cert2=?',[D.selectForArray('kos')[date][12]]) 
+	id_today2 = D.selectForArray('kos',['id'],'cert2=?',[D.selectForArray('kos')[date][12]])
+	id_today3 = id_today.map(v=>v=id_today[v])
 	// 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
 	var pro_array2 = [];
+	var pro_array3 = [];
 
 	for(k=1; k<id_today.length; k++){
 		for(j=1; j<(days+1); j++){
@@ -118,7 +120,7 @@ kosu = function(r){
 		for(j=1; j<(days+1); j++){
 			for(z=1; z<j+1; z++){
 				if(D.selectForArray('kos',[],'id=?',[id_today2[k]-j])[0]==undefined){
-					pro_array.push('');
+					pro_array2.push('');
 				}
 				else{
 					pro_array2.push(D.selectForArray('kos',[],'id=?',[id_today2[k]-j])[0][z]);
@@ -126,6 +128,20 @@ kosu = function(r){
 			}
 		}
 	}
+
+	for(k=1; k<id_today3.length; k++){
+		for(j=1; j<(days+1); j++){
+			for(z=1; z<j+1; z++){
+				if(D.selectForArray('kos',[],'id=?',[id_today3[k]-j])[0]==undefined){
+					pro_array3.push('');
+				}
+				else{
+					pro_array3.push(D.selectForArray('kos',[],'id=?',[id_today3[k]-j])[0][z]);
+				}
+			}
+		}
+	}
+
 
 	dddd = flattenDeep(pro_array)
 
@@ -170,6 +186,28 @@ kosu = function(r){
 					"-2% 이하: " + prob_b2 );
 	
 	r.replier.reply("cert2: " + id_today2 + "\n" + dddd2)
+
+	dddd3 = flattenDeep(pro_array3)
+
+	prob_23 = (dddd3.filter(v=>v>0.02).length / dddd3.length * 100).toFixed(0)+"%"	;
+	prob_13 = (dddd3.filter(v=>v>0.01).length / dddd3.length * 100).toFixed(0)+"%"	;
+	prob_03 = (dddd3.filter(v=>v>0.00).length / dddd3.length * 100).toFixed(0)+"%"	;
+	
+	prob_003 = (dddd3.filter(v=>v<0.00).length / dddd3.length * 100).toFixed(0)+"%"	;
+	prob_a3 = (dddd3.filter(v=>v<-0.01).length / dddd3.length * 100).toFixed(0)+"%"	;
+	prob_b3 = (dddd3.filter(v=>v<-0.02).length / dddd3.length * 100).toFixed(0)+"%"	;
+
+
+	var time = (new Date() - Timer) / 1000;
+	r.replier.reply("계산완료: "+ time + "s\n" + days + "일 안에 변동확률 \n" + 
+					"2% 이상: " + prob_23 + "\n" +
+					"1% 이상: " + prob_13 + "\n" +
+					"0% 이상: " + prob_03 + "\n\n" +
+					"0% 이하: " + prob_003 + "\n" +
+					"-1% 이하: " + prob_a3 + "\n" +
+					"-2% 이하: " + prob_b3 );
+	
+	r.replier.reply("cert3: " + id_today3 + "\n" + dddd2)
 
 }
 
