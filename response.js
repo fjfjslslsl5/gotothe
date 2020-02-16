@@ -96,7 +96,14 @@ kosu = function(r){
 	// 특정 상황에 맞는 갯수
 	id_today = D.selectForArray('kos',['id'],'cert1=?',[D.selectForArray('kos')[date][11]]) 
 	id_today2 = D.selectForArray('kos',['id'],'cert2=?',[D.selectForArray('kos')[date][12]])
-	id_today3 = id_today.map(v=>v=id_today[v]).filter(n=>n)
+	id_today3 = [];
+		for(i=0; i<id_today.length; i++){
+			for(j=0; j<id_today2.length; j++){
+	 		  if(Number(id_today[i]) == Number(id_today2[j])){
+	 	 		 id_today3.push(id_today[j])
+			   }
+		   }
+	   }
 	// 오늘 특정 변수와 같은 값을 가진 id
 
 	var pro_array = [];
