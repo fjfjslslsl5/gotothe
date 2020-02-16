@@ -207,7 +207,7 @@ kosu = function(r){
 					"-1% 이하: " + prob_a3 + "\n" +
 					"-2% 이하: " + prob_b3 );
 	
-	r.replier.reply("cert3: " + id_today3 + "\n" + dddd2)
+	r.replier.reply("cert3: " + id_today3 + "\n" + dddd3)
 
 }
 
