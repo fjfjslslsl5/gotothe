@@ -78,7 +78,7 @@ kosu = function(r){
 
 	abb = D.selectForArray('kos');
 	for(j=0; j<abb.length; j++){
-	D.update('kos',{cert1: D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'])[j].filter(v=>v>0).length },"id=?",[j]);
+	D.update('kos',{cert1:D.selectForArray('kos',['num1','num2','num3','num4','num5','num6','num7','num8','num9','num10'])[j].filter(v=>v>0).length },"id=?",[j]);
 	D.update('kos',{cert2:(abb[j][3]*3/6+abb[j][2]*2/6+abb[j][1]*1/6).toFixed(3) },"id=?",[j]);
 	}
 	var time = (new Date() - Timer) / 1000;
